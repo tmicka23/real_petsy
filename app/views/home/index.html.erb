@@ -6,6 +6,10 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad obcaecati eum magnam! Eum accusantium voluptas, repudiandae minima. Distinctio rem, voluptates molestiae quisquam ducimus porro quo quasi dolorem, fugit at deserunt.</p>
 	</div>
 	<div class="container col-md-6">
+		<% if user_signed_in? %>
+			<a href="<%= destroy_user_session_path %>" class="btn btn-secondary" data-method="delete"> Se déconnecter</a>
+		<% else %>
 			<a href="<%= new_user_registration_path %>" class="btn btn-primary" > Se connecter / S'inscrire</a>
+		<% end %>
 	</div>
 </div>
