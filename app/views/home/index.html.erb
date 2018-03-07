@@ -12,6 +12,7 @@
 			<a href="<%= destroy_user_session_path %>" class="btn btn-secondary" data-method="delete"> Se déconnecter</a>
 		<% else %>
 			<a href="<%= new_user_registration_path %>" class="btn btn-primary" > Se connecter / S'inscrire</a>
+			<a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-primary" > Se connecter via facebook</a>
 		<% end %>
 	</div>
 </div>
