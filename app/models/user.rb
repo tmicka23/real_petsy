@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-
+has_many :pets
 attr_accessor :login
 
 
@@ -23,7 +23,7 @@ attr_accessor :login
   	else
   		where(conditions.to_hash).first
   	end
-  end     
+  end
 
 
 
