@@ -5,7 +5,7 @@
   <div class="col-md-4">
     <div class="list-group">
       <a href="<%= pets_path %>" class="list-group-item<%= yield(:tab) == 'pets' ? ' active' : '' %>">Mes animaux</a>
-      <a href="" class="list-group-item<%= yield(:tab) == 'profil' ? ' active' : '' %>">Mon compte</a>
+      <a href="<%= root_path %>" class="list-group-item<%= yield(:tab) == 'profil' ? ' active' : '' %>">Mon compte</a>
     </div>
   </div>
 </div>
