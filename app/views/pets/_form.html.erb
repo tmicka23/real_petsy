@@ -1,52 +1,9 @@
-<%= form_with(model: pet, local: true) do |form| %>
-  <% if pet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+<%= simple_form_for pet do |form| %>
 
-      <ul>
-      <% pet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-  <%= form.label :name, "Nom", class: 'col-md-4 control label' %>
-  <div class="col-md-6">
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
-</div>
-
-
-<div class="form-group">
-  <%= form.label :species_id, "Espèce", class: 'col-md-4 control label' %>
-  <div class="col-md-6">
-    <%= form.select :species_id, Species.pluck(:name, :id), {}, class: 'form-control' %>
-  </div>
-</div>
-
-
-<div class="form-group">
-  <%= form.label :gender, "Sexe", class: 'col-md-4 control label' %>
-  <div class="col-md-6">
-    <%= form.select :gender, {Male: :M, Femelle: :F}, {}, class: 'form-control' %>
-  </div>
-</div>
-
-<div class="form-group">
-  <%= form.label :birthday, "Date de naissance", class: 'col-md-4 control label' %>
-  <div class="col-md-6">
-    <%= form.date_select :birthday, class: 'form-control' %>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="col-md-6 col-md-offset-4">
-    <button type="submit" class="btn btn-primary">
-       <%= pet.new_record? ? 'Créer' : 'Modifier' %>
-     </button>
-  </div>
-</div>
+  <%= form.input :name %>
+  <%= form.association :species, include_blank: false %>
+  <%= form.input :gender, collection: {Male: :M, Femelle: :F}, include_blank: false %>
+  <%= form.input :birthday, as: :string, input_html: {class: 'form-datepicker'} %>
+  <%= form.button :submit, pet.new_record? ? 'Créer' : 'Modifier', class: 'btn-primary' %>
 
 <% end %>
