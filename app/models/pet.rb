@@ -6,6 +6,8 @@ class Pet < ApplicationRecord
   validates :gender, format: {with: /\A(M|F)\z/}
   validate :birthday_not_future
 
+  mount_uploader :image, ImageUploader
+
   def age
     Time.now.year - birthday.year
   end

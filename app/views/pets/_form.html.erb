@@ -1,5 +1,11 @@
 <%= simple_form_for pet do |form| %>
 
+  <% if @pet.image? %>
+  <p>
+    <%= image_tag @pet.image_url %>
+  </p>
+  <% end %>
+  <%= form.input :image, as: :file %>
   <%= form.input :name %>
   <%= form.association :species, include_blank: false %>
   <%= form.input :gender, collection: {Male: :M, Femelle: :F}, include_blank: false %>
