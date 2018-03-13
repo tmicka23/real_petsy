@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
     
-
+  def me
+    @posts = current_user.posts.all
+  end
 
   def index
     @posts = Post.all

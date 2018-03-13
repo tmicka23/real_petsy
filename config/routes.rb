@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 
-  resources :posts
+  resources :posts do
+  	collection do
+  		get 'me'
+  	end
+  end
   devise_for :users, controllers: {
   	omniauth_callbacks: 'users/omniauth_callbacks'
   }
