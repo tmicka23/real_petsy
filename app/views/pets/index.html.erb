@@ -27,12 +27,16 @@
         <td><%= pet.age %></td>
         <td><%= pet.species.name %></td>
         <td><%= link_to 'Voir', pet %></td>
-        <td><%= link_to 'Modifier', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Supprimer', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? && current_user.id === pet.user_id %>
+          <td><%= link_to 'Modifier', edit_pet_path(pet) %></td>
+          <td><%= link_to 'Supprimer', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
 
 <% end %>
 

@@ -14,7 +14,11 @@ class PostsController < ApplicationController
 
  
   def new
-    @post = current_user.posts.new
+    if user_signed_in?
+      @post = current_user.posts.new
+    else
+      redirect_to new_user_registration_path, danger: 'vous devez être connecter pour créer un article'
+    end
   end
 
  
@@ -43,7 +47,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, success: 'Votre article a bien été modifié'
+    redirect_to posts_url, success: 'Votre article a bien été supprimé'
   end
 
   private
