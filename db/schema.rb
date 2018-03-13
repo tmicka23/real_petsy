@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20180312075359) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
+  create_table "pets_posts", id: false, force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "pet_id", null: false
+    t.index ["pet_id", "post_id"], name: "index_pets_posts_on_pet_id_and_post_id"
+    t.index ["post_id", "pet_id"], name: "index_pets_posts_on_post_id_and_pet_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "species", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -52,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180312075359) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "facebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -62,4 +79,5 @@ ActiveRecord::Schema.define(version: 20180312075359) do
 
   add_foreign_key "pets", "species"
   add_foreign_key "pets", "users"
+  add_foreign_key "posts", "users"
 end

@@ -24,7 +24,7 @@
     <% @pets.each do |pet| %>
       <tr>
         <td><%= pet.name %></td>
-        <td><%= image_tag pet.image_url(:thumb) %></td>
+        <td><img src="<%= pet.image_url(:thumb) %>" alt=""></td>
         <td><%= pet.gender %></td>
         <td><%= pet.age %></td>
         <td><%= pet.species.name %></td>
