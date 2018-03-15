@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+
+
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h3><%= post.name %></h3>
+        </div>
+        <div class="card-body">
+          <p><%= post.content %></p>
+          <p>Par : <%= post.user.username %></p>
+          <div>
+            <h4>sur cet article :</h4>
+              <% post.pets.each do |pet| %>
+                <a href="<%= pet_path(pet) %>" class="badge badge-pill badge-primary"><%= pet.name %></a>
+              <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+    
+      
+        
+        
+
+<br>
+
+  <%= link_to 'New Post', new_post_path %>
+ 
+

@@ -1,0 +1,15 @@
+<h1>Mes articles</h1>
+
+	<div class="row">
+		<% @posts.each do |post| %>
+			<div class="col-md-4">
+				<h3><%= post.name %></h3>
+				<p><%= post.content %></p>
+				<p>
+					<%= link_to 'voir', post %>
+					<%= link_to"modifier", edit_post_path(post) %>
+					<%= link_to 'supprimer', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+				</p>
+			</div>
+		<% end %>
+	</div>

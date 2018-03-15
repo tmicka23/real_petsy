@@ -5,7 +5,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = current_user.pets
+    @pets = Pet.all
   end
 
   # GET /pets/1
@@ -16,7 +16,11 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
-    @pet = current_user.pets.new
+    if user_signed_in?
+      @pet = current_user.pets.new
+    else
+      redirect_to new_user_registration_path, danger: 'vous devez être connecter pour ajouter un animal'
+    end
   end
 
   # GET /pets/1/edit

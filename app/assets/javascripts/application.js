@@ -14,10 +14,15 @@
 //= require turbolinks
 //= require flatpickr/flatpickr.js
 //= require_tree .
+
+//= require select2/select2.min.js
 //= require_self
+
 
 flatpickr('.form-datepicker', {
  altInput: true,
  altFormat: 'j F Y',
  maxDate: new Date()
 })
+
+$('select[multiple]').select2()

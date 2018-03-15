@@ -5,9 +5,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\A[a-zA-Z\p{L}\p{M}ëêéèàüù\-\_]+\z/}
 
-has_many :pets
-attr_accessor :login
+  has_many :pets
+  has_many :posts
+  attr_accessor :login
 
+  
 
 
   devise :database_authenticatable, :registerable,
