@@ -9,9 +9,7 @@ class Pet < ApplicationRecord
 
   after_destroy :destroy_posts
 
-
-
-
+  mount_uploader :image, ImageUploader
 
 
   def age
