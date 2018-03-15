@@ -25,7 +25,16 @@
     <%= form.text_field :user_id, id: :post_user_id, type: 'hidden' %>
   </div>
 
+  <div class="field">
+    <%= form.label :pet_ids,'Animaux', class: 'col-md-4 control-label' %>
+      <%= form.select :pet_ids, current_user.pets.pluck(:name, :id), {}, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
+
+
 <% end %>

@@ -7,6 +7,13 @@ class Pet < ApplicationRecord
   validates :gender, format: {with: /\A(M|F)\z/}
   validate :birthday_not_future
 
+  after_destroy :destroy_posts
+
+
+
+
+
+
   def age
     Time.now.year - birthday.year
   end
@@ -16,5 +23,26 @@ class Pet < ApplicationRecord
       errors.add(:birthday, 'ne peut etre dans le future')
     end
   end
+
+
+
+
+
+
+
+
+
+  private
+
+
+  def destroy_posts
+    Post.find_by_sql('SELECT * FROM posts LEFT JOIN pets_posts ON pets_posts.post_id = posts.id WHERE pets_posts.post_id IS NULL').each do |post|
+      post.destroy
+    end
+  end
+
+
+
+
 
 end

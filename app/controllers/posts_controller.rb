@@ -60,6 +60,8 @@ class PostsController < ApplicationController
 
 
     def post_params
-      params.require(:post).permit(:name, :content, :user_id)
+     p = params.require(:post).permit(:name, :content, pet_ids: [])
+     p[:pet_ids] = current_user.pets.where(id: p[:pet_ids]).pluck(:id)
+     p
     end
 end
