@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
-    
+
   def me
     @posts = current_user.posts.all
   end
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
   end
 
- 
+
   def new
     if user_signed_in?
       @post = current_user.posts.new
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     end
   end
 
- 
+
   def edit
   end
 
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
 
 
     def post_params
-     p = params.require(:post).permit(:name, :content, pet_ids: [])
+     p = params.require(:post).permit(:photo, :name, :content, pet_ids: [])
      p[:pet_ids] = current_user.pets.where(id: p[:pet_ids]).pluck(:id)
      p
     end
