@@ -13,3 +13,10 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require select2/select2.min.js
+//= require_self
+
+
+
+
+$('select[multiple]').select2()

@@ -27,7 +27,7 @@
 
   <div class="field">
     <%= form.label :pet_ids,'Animaux', class: 'col-md-4 control-label' %>
-      <%= form.select :pet_ids, current_user.pets.pluck(:name, :id), {}, multiple: true %>
+      <%= form.select :pet_ids, current_user.pets.pluck(:name, :id), {}, multiple: true, class: 'form-control' %>
   </div>
 
   <div class="actions">
