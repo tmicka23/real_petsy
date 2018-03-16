@@ -16,7 +16,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: [:facebook]
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :avatar, AvatarUploader
 
   def self.find_first_by_auth_conditions(warden_conditions)
 

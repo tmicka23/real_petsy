@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <% if @post.photo? %>
+  <p>
+    <%= image_tag @post.photo_url %>
+  </p>
+  <% end %>
+
   <div class="field">
     <%= form.label :photo %>
     <%= form.file_field :photo %>
