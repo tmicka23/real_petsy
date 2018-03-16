@@ -2,7 +2,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= image_tag @post.photo_url(:large)%>
+  <img src="<%= @post.photo_url(:large)%>" alt="<%= @post.name %>">
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.username %>
 </p>
 
 <div>

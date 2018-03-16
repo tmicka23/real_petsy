@@ -16,3 +16,6 @@
  *= require flatpickr/flatpickr.min.css
  */
 
+.posts {
+	text-align: center;
+}

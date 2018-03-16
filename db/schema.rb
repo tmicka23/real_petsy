@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20180315173959) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "Photo"
     t.string "photo"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -70,9 +69,9 @@ ActiveRecord::Schema.define(version: 20180315173959) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "facebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "avatar"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
