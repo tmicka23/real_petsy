@@ -17,10 +17,6 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  validates_presence_of   :avatar
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
-
 
   def self.find_first_by_auth_conditions(warden_conditions)
 

@@ -1,12 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-	before_action :user_params
 
+	def new
+		
+	end
 
 
 	def edit
+		
 	end
-
 
 
 	protected
@@ -16,11 +18,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	end
 
 
-
-	private
-
-	def user_params
-	 user_params = params(current_user).permit(:username, :avatar)
-	end
 
 end
