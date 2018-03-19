@@ -89,6 +89,10 @@ fr:
       updated: Votre mot de passe a été modifié avec succès. Vous êtes maintenant connecté(e).
       updated_not_active: Votre mot de passe a été modifié avec succès.
     registrations:
+      username: "nom d'utilisateur"
+      current_password: "mot de passe actuel"
+      password: "mot de passe"
+      password_confirmation: "confirmer le mot de passe"
       destroyed: Au revoir ! Votre compte a été annulé avec succès. Nous espérons vous revoir bientôt.
       edit:
         are_you_sure: "Êtes-vous sûr ?"
