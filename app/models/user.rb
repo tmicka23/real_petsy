@@ -7,16 +7,20 @@ class User < ApplicationRecord
 
   has_many :pets
   has_many :posts
-  attr_accessor :login
+  attr_accessor :login, :avatar, :remove_avatar
 
   
-
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploader :avatar, AvatarUploader
+
+  validates_presence_of   :avatar
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
 
