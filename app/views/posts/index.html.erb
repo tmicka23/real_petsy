@@ -2,7 +2,7 @@
 
 <h1>Posts</h1>
 
-
+<% content_for :content do %>
 
 <div class="row">
   <% @posts.each do |post| %>
@@ -16,7 +16,7 @@
             <div>
               <img src="<%= post.photo_url(:thumb) %>">
             </div>
-          <% end %>          
+          <% end %>
           <p><%= post.content %></p>
           <p>Par : <%= post.user.username %></p>
           <div>
@@ -31,13 +31,14 @@
   <% end %>
 </div>
 
-    
-      
-        
-        
+
+
+
+
 
 <br>
 
   <%= link_to 'New Post', new_post_path %>
- 
 
+  <% end %>
+  <%= render template: 'layouts/profile' %>
