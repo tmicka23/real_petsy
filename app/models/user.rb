@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :posts
   attr_accessor :login, :avatar, :remove_avatar
 
-  
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
