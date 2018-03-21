@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-	before_action :user_params
+	
 
 
 
@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	end
 
 	def create
-		@user = User.new(user_params)
+		@user = User.new(sign_up_params)
 		if @user.save
-			redirect_to :edit, success: "votre compte à bien été créer, vous aller recevoir un mail de confirmation"
+			redirect_to edit_user_registration_path, success: "votre compte à bien été créer, vous aller recevoir un mail de confirmation"
 		else
 			redirect_to new_user_registration_path, danger: "Une erreur est survenue lors de la création de votre compte"
 		end
@@ -19,15 +19,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 	def edit
-		
+		current_user		
 	end
 
 
 	def update
-		if current_user.update(user_params)
+		if current_user.update(account_update_params)
 			redirect_to root_path, success: "votre compte à bien été modifié"
 		else
-			redirect_to :edit, danger: "erreur lors de la modification de votre compte"
+			redirect_to edit_user_registration_path, danger: "erreur lors de la modification de votre compte"
 		end
 	end
 
@@ -45,9 +45,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	private
 
 
+    def sign_up_params
+      params.require(:user).permit(:email, :username, :password, :password_confirmation)
+    end
 
-	def user_params
-      params.require(:user).permit(:username, :login, :password, :password_confirmation, :avatar)
+    def account_update_params
+      params.require(:user).permit(:email, :username, :password, :password_confirmation, :avatar , :login)
     end
 
 	protected
