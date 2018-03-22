@@ -5,10 +5,12 @@
   <%= @pet.name %>
 </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag @pet.image_url(:large) %>
+<% if @pet.image %>
+  <p>
+    <strong>Photo:</strong>
+  <img src="<%= @pet.image_url(:large) %>" alt="<%= @pet.name %>">
 </p>
+<% end %>
 
 <p>
   <strong>Gender:</strong>
