@@ -3,11 +3,11 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\A[a-zA-Z\p{L}\p{M}ëêéèàüù\-\_]+\z/}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {in: 4..20}
 
   has_many :pets
   has_many :posts
-  attr_accessor :login, :avatar, :remove_avatar
+  attr_accessor :login, :avatar, :remove_avatar, :locale
 
 
 
