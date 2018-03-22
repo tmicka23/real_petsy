@@ -40,6 +40,7 @@ gem 'carrierwave', '~> 1.0'
 # gem 'capistrano-rails', group: :development
 # authentification
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'devise-i18n', '~> 1.6', '>= 1.6.1'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'omniauth-facebook', '~> 4.0'
 

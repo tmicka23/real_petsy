@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Photo:</strong>
+  <img src="<%= @post.photo_url(:large)%>" alt="<%= @post.name %>">
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @post.name %>
 </p>
@@ -12,7 +17,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.username %>
 </p>
 
 <div>

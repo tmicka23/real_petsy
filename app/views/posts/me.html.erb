@@ -1,9 +1,14 @@
 <h1>Mes articles</h1>
 
+<% content_for :content do %>
+
 	<div class="row">
 		<% @posts.each do |post| %>
 			<div class="col-md-4">
 				<h3><%= post.name %></h3>
+				<% if post.photo %>
+						<img src="<%= post.photo_url(:thumb) %>">
+				<% end %>
 				<p><%= post.content %></p>
 				<p>
 					<%= link_to 'voir', post %>
@@ -13,3 +18,7 @@
 			</div>
 		<% end %>
 	</div>
+
+<% end %>
+
+	<%= render template: 'layouts/profile' %>
