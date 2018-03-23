@@ -4,14 +4,11 @@ Rails.application.routes.draw do
   resources :posts do
   	collection do
   		get 'me'
+      get 'follow'
   	end
   end
 
-  resources :posts do
-    collection do
-      get 'follow'
-    end
-  end
+
 
 
 
