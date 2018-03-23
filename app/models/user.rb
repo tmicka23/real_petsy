@@ -3,20 +3,20 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, format: {with: /\A[a-zA-Z\p{L}\p{M}ëêéèàüù\-\_]+\z/}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {in: 4..30}
 
   has_many :pets
   has_many :posts
-  attr_accessor :login
+  attr_accessor :login, :avatar, :remove_avatar, :locale
 
-  
 
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: [:facebook]
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :avatar, AvatarUploader
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
 

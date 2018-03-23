@@ -16,3 +16,12 @@
  *= require flatpickr/flatpickr.min.css
  */
 
+.posts {
+	text-align: center;
+}
+
+.circle {
+	border-radius :50%;
+  	border:1px solid #ecf0f1;
+
+}
