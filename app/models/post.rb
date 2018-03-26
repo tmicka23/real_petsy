@@ -7,5 +7,7 @@ class Post < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  attr_accessor :locale
+
 
 end

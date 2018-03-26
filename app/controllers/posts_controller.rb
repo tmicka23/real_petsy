@@ -1,8 +1,17 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :show]
 
   def me
     @posts = current_user.posts.all
+  end
+
+  def follow
+    pet_ids = current_user.followed_pets.pluck(:id)
+   if pet_ids.empty?
+     @posts = []
+   else
+     @posts = Post.joins('INNER JOIN pets_posts ON pets_posts.post_id = posts.id').where("pets_posts.pet_id IN (#{pet_ids.join(',')})")
+   end
   end
 
   def index
@@ -59,7 +68,7 @@ class PostsController < ApplicationController
 
 
     def post_params
-     p = params.require(:post).permit(:photo, :name, :content, pet_ids: [])
+     p = params.require(:post).permit(:photo, :name, :content, :locale, pet_ids: [])
      p[:pet_ids] = current_user.pets.where(id: p[:pet_ids]).pluck(:id)
      p
     end

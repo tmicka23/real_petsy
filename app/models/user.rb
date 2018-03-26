@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :posts
   attr_accessor :login, :avatar, :remove_avatar, :locale
 
+  has_many :subscriptions
+  has_many :followed_pets, through: :subscriptions, source: :pet 
+
 
 
   devise :database_authenticatable, :registerable,
