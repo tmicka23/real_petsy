@@ -24,3 +24,11 @@
   	border:1px solid #ecf0f1;
 
 }
+
+
+.navatar {
+	max-height: 45px;
+	max-width: 45px;
+	border-radius :50%;
+  	border:1px solid #ecf0f1;
+}

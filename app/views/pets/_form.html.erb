@@ -2,7 +2,7 @@
 
   <% if @pet.image? %>
   <p>
-    <%= image_tag @pet.image_url %>
+    <img src="<%= @pet.image_url %>" class="circle">
   </p>
   <% end %>
   <%= form.input :image, as: :file %>
