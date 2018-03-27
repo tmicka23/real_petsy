@@ -8,7 +8,7 @@
   <a href="<%= new_pet_path %>" class="btn btn-success">Ajouter un animal</a>
 </p>
 
-<table class="table table-striped">
+<table class="table highlight">
   <thead>
     <tr>
       <th>Nom</th>
@@ -28,10 +28,10 @@
         <td><%= pet.gender %></td>
         <td><%= pet.age %></td>
         <td><%= pet.species.name %></td>
-        <td><%= link_to 'Voir', pet %></td>
+        <td> <a href="<%= pet_path(pet.id) %>" class="waves-effect waves-light btn light-blue" >Voir</a> </td>
         <% if user_signed_in? && current_user.id === pet.user_id %>
-          <td><%= link_to 'Modifier', edit_pet_path(pet) %></td>
-          <td><%= link_to 'Supprimer', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td> <a href="<%= edit_pet_path(pet) %>" class="waves-effect waves-light btn cyan" >Modifier</a> </td>
+          <td> <a href="<%= pet_path(pet.id) %>" class="waves-effect waves-light btn red" data-methode="delete" data-confirm=": Êtes vous sur de vouloir supprimer <%= pet.name %>">Supprimer</a> </td>
         <% end %>
       </tr>
     <% end %>
