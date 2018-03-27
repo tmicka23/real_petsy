@@ -3,7 +3,7 @@
   <head>
     <title>Petsy</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -11,15 +11,15 @@
   	<nav class="teal">
 	   <div class="nav-wrapper teal">
 	      <a href="<%= root_path %>" class="brand-logo grey-text text-lighten-5">The Real Petsy</a>
-	      <a href="##" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	      <a href="##" data-target="mobile-demo" class="sidenav-trigger button-collapse"><i class="material-icons">menu</i></a>
 	      <ul class="right hide-on-med-and-down">
 	        <li>
 	        	<a href="<%= root_path %>" class="grey-text text-lighten-5">
 	        	<i class="material-icons tiny right ">home</i>Accueil</a>
 	    </li>
 	        <li>
-	        	<a href="about_us.html" class="grey-text text-lighten-5">
-	        	<i class="material-icons tiny right ">portrait</i>À propos</a>
+	        	<a href="<%= posts_path %>" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">portrait</i>Les articles</a>
 	    </li>
 	        <li>
 	        	<a href="prices.html" class="grey-text text-lighten-5">
@@ -36,8 +36,8 @@
 	        	<i class="material-icons tiny right ">home</i>Accueil</a>
 	        </li>
 	        <li>
-	        	<a href="about_us.html" class="grey-text text-lighten-5">
-	        	<i class="material-icons tiny right ">portrait</i>À propos</a>
+	        	<a href="<%= posts_path %>" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">portrait</i>Les articles</a>
 	        </li>
 	        <li>
 	        	<a href="prices.html" class="grey-text text-lighten-5">
@@ -70,11 +70,6 @@
 
     
     <div class="container">
-    	<div class="row">
-    		<div class="container col-md-6">
-				<a href="<%= posts_path %>" class="btn btn-primary btn-lg btn-block">voir tous les articles</a>
-    		</div>
-    	</div>
     	<%= yield %>
     </div>
   
