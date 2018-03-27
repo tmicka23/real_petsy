@@ -29,8 +29,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'materialize-sass', '~> 1.0.0.beta'
+gem 'material_icons', '~> 2.2', '>= 2.2.1'
 gem 'simple_form'
+gem 'simple_form_materialize', '~> 1.1', '>= 1.1.1'
 
 gem 'mini_magick'
 

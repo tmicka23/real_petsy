@@ -12,10 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require flatpickr/flatpickr.js
+//= require materialize
 //= require_tree .
-
-//= require select2/select2.min.js
 //= require_self
 
 
