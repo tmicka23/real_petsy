@@ -31,7 +31,7 @@
         <td> <a href="<%= pet_path(pet.id) %>" class="waves-effect waves-light btn light-blue" >Voir</a> </td>
         <% if user_signed_in? && current_user.id === pet.user_id %>
           <td> <a href="<%= edit_pet_path(pet) %>" class="waves-effect waves-light btn cyan" >Modifier</a> </td>
-          <td> <a href="<%= pet_path(pet.id) %>" class="waves-effect waves-light btn red" data-methode="delete" data-confirm=": Êtes vous sur de vouloir supprimer <%= pet.name %>">Supprimer</a> </td>
+          <td> <a href="<%= pet_path(pet.id) %>" class="waves-effect waves-light btn red" data-method="delete" data-confirm="Êtes vous sur de vouloir supprimer <%= pet.name %>">Supprimer</a> </td>
         <% end %>
       </tr>
     <% end %>
