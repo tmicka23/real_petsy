@@ -12,13 +12,13 @@
 
 	<div class="container">
 		<% if flash[:notice] || flash[:success] %>
-			<div class="alert alert-success">
+			<div class="card-panel teal lighten-2">
 				<%= flash[:notice] || flash[:success] %>
 			</div>
 		<% end %>
 
 		<% if flash[:alert] || flash[:danger]%>
-			<div class="alert alert-danger">
+			<div class="card-panel red lighten-2">
 				<%= flash[:alert] || flash[:danger] %>
 			</div>
 		<% end %>
