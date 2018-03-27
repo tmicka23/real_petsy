@@ -8,7 +8,48 @@
   </head>
 
   <body>
-
+  	<nav class="teal">
+	   <div class="nav-wrapper teal">
+	      <a href="<%= root_path %>" class="brand-logo grey-text text-lighten-5">The Real Petsy</a>
+	      <a href="##" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	      <ul class="right hide-on-med-and-down">
+	        <li>
+	        	<a href="<%= root_path %>" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">home</i>Accueil</a>
+	    </li>
+	        <li>
+	        	<a href="about_us.html" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">portrait</i>À propos</a>
+	    </li>
+	        <li>
+	        	<a href="prices.html" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">assessment</i>Tarifs</a>
+	    </li>
+	        <li>
+	        	<a href="contact.html" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">call</i>Contact</a>
+	    </li>
+	      </ul>
+	      <ul class="sidenav teal darken-1" id="mobile-demo">
+	        <li>
+	        	<a href="<%= root_path %>" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">home</i>Accueil</a>
+	        </li>
+	        <li>
+	        	<a href="about_us.html" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">portrait</i>À propos</a>
+	        </li>
+	        <li>
+	        	<a href="prices.html" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">assessment</i>Tarifs</a>
+	        </li>
+	        <li>
+	        	<a href="contact.html" class="grey-text text-lighten-5">
+	        	<i class="material-icons tiny right ">call</i>Contact</a>
+	        </li>
+	      </ul>
+	   </div>
+  	</nav>
 
 	<div class="container">
 		<% if flash[:notice] || flash[:success] %>
@@ -42,7 +83,7 @@
 
 
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

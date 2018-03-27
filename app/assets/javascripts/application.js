@@ -16,11 +16,14 @@
 //= require_tree .
 //= require_self
 
+$(".button-collapse").sideNav();
+  var elem = document.querySelector('.sidenav');
+  var instance = M.Sidenav.init(elem, options);
 
-flatpickr('.form-datepicker', {
- altInput: true,
- altFormat: 'j F Y',
- maxDate: new Date()
-})
+  // Or with jQuery
 
-$('select[multiple]').select2()
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
+ $(".button-collapse").sideNav();
