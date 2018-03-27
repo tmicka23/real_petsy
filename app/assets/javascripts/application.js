@@ -28,3 +28,8 @@ M.AutoInit();
   });
         
  $(".button-collapse").sideNav();
+
+   $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+       
