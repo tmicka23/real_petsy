@@ -8,7 +8,7 @@
         <% if @pet.followedBy?(current_user) %>
           <%= link_to "Se désabonner", pet_subscriptions_path(pet_id: @pet.id), method: :delete, class: 'btn red lighten-1 grey-text text-lighten-5'%>
         <%else%>
-          <%= link_to "S'abonner", pet_subscriptions_path(pet_id: @pet.id), method: :post, class: 'btn teal  grey-text text-lighten-5' %>
+          <%= link_to "S'abonner", pet_subscriptions_path(pet_id: @pet.id), method: :post, class: 'btn teal accent-3 grey-text text-lighten-5' %>
         <%end%>
       <%end%>
         
