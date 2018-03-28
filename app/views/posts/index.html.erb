@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
 <% content_for :content do %>
+
+<h1>Tous les articles</h1>
+
+<p class="text-left">
+  <a href="<%= new_post_path %>" class="waves-effect waves-light btn purple accent-3"><i class="material-icons left">thumb_up</i>Ajouter un article</a>
+</p>
+
+
 
 <div class="row">
   <% @posts.each do |post| %>
@@ -37,8 +42,6 @@
 
 
 <br>
-
-  <%= link_to 'New Post', new_post_path %>
 
   <% end %>
   <%= render template: 'layouts/profile' %>

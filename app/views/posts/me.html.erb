@@ -1,6 +1,11 @@
-<h1>Mes articles</h1>
 
 <% content_for :content do %>
+
+<h1>Mes articles</h1>
+
+<p class="text-left">
+  <a href="<%= new_post_path %>" class="waves-effect waves-light btn teal accent-3"><i class="material-icons left">thumb_up</i>Ajouter un article</a>
+</p>
 
 	<div class="row">
 		<% @posts.each do |post| %>

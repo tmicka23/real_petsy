@@ -8,6 +8,8 @@ class PetsController < ApplicationController
     @pets = current_user.pets.all
   end
 
+  
+
   # GET /pets/1
   # GET /pets/1.json
   def show
