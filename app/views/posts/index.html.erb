@@ -7,39 +7,29 @@
   <a href="<%= new_post_path %>" class="waves-effect waves-light btn purple accent-3"><i class="material-icons left">thumb_up</i>Ajouter un article</a>
 </p>
 
-
-
 <div class="row">
   <% @posts.each do |post| %>
-    <div class="col-md-4">
+    <div class="col s12 m6">
       <div class="card">
-        <div class="card-header">
-          <h3><%= post.name %></h3>
+        <div class="card-image">
+          <img src="<%= post.photo_url(:thumb) %>">
+          <span class="card-title"><%= post.name %></span>
         </div>
-        <div class="card-body posts">
-          <% if post.photo %>
-            <div>
-              <img src="<%= post.photo_url(:thumb) %>">
-            </div>
-          <% end %>
+        <div class="card-content">
           <p><%= post.content %></p>
           <p>Par : <%= post.user.username %></p>
-          <div>
-            <h4>sur cet article :</h4>
-              <% post.pets.each do |pet| %>
-                <a href="<%= pet_path(pet) %>" class="badge badge-pill badge-primary"><%= pet.name %></a>
-              <%end%>
-          </div>
+        </div>
+        <div class="card-action">
+          <a href="<%= post_path(post.id) %>">Voir l'article</a>
+          <p>sur cet article :</p>
+            <% post.pets.each do |pet| %>
+              <a href="<%= pet_path(pet) %>" class="badge badge-pill badge-primary"><%= pet.name %></a>
+            <%end%>
         </div>
       </div>
     </div>
-  <% end %>
-</div>
-
-
-
-
-
+   <% end %>
+  </div>
 
 <br>
 
