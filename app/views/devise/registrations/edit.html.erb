@@ -1,3 +1,4 @@
+<%=  content_for :tab, :profil %>
 <% content_for :content do %>
 <div class="row">
   <div class="col-md-6">
@@ -19,10 +20,10 @@
           <% end %>
 
         <div class="form-actions">
-          <%= f.button :submit, t(".update") %>
+          <%= f.button :submit, t(".update"), class: 'waves-effect waves-light btn light-blue' %>
         </div>
       <% end %>
-        <a href="<%= edit_user_password_path %>" class="btn btn-light">Modifier mon mot de passe</a> 
+        
 
       <h3><%= t(".cancel_my_account") %></h3>
 

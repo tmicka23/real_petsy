@@ -3,11 +3,15 @@
   <head>
     <title>Petsy</title>
     <%= csrf_meta_tags %>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="flow-text">
 
 <!-- dropdown navbar -->
 <ul id="dropdown1" class="dropdown-content teal">
@@ -28,7 +32,7 @@
 
   	<nav class="teal">
 	   <div class="nav-wrapper teal">
-	      <a href="<%= root_path %>" class="brand-logo grey-text text-lighten-5">The Real Petsy</a>
+	      <a href="<%= root_path %>" class="brand-logo grey-text text-lighten-5 flow-text">Petsy</a>
 	      <a href="##" data-target="mobile-demo" class="sidenav-trigger button-collapse"><i class="material-icons">menu</i></a>
 	      <ul class="right hide-on-med-and-down">
 	        <li>
@@ -39,13 +43,6 @@
 	        	<a href="<%= posts_path %>" class="grey-text text-lighten-5">
 	        	<i class="material-icons tiny right ">book</i>Les articles</a>
 	    </li>
-
-	    <% if user_signed_in? %>
-	        <li>
-	        	<a href="<%= pets_path %>" class="grey-text text-lighten-5">
-	        	<i class="material-icons tiny right ">sentiment_very_satisfied</i>Mes Animaux</a>
-	    </li>
-	    <% end %>
 	    <li>
 	    	<% if user_signed_in? %>
 			<a class="dropdown-trigger" href="#!" data-target="dropdown1"> 
@@ -66,7 +63,7 @@
 				<br>
 				<li>
 					<% if current_user.avatar %>
-						<img src="<%= current_user.avatar_url(:thumb) %>" class="navatar">
+						<img src="<%= current_user.avatar_url(:thumb) %>" class="circle center">
 					<% else %>
 						<%= current_user.username %>
 					<% end %>
@@ -83,14 +80,9 @@
 	        	<i class="material-icons tiny right ">book</i>Les articles</a>
 	        </li>
 	        <li>
-	        	<a href="<%= pets_path %>" class="grey-text text-lighten-5">
-	        	<i class="material-icons tiny right ">sentiment_very_satisfied</i>Mes Animaux</a>
-	        </li>
-	        <li>
 	        	<a href="<%= edit_user_registration_path %>" class="grey-text text-lighten-5">
 	        	<i class="material-icons tiny right ">person</i>Mon profile</a>
 	        </li>
-	        <br>
 	        <br>
 	        <br>
 
@@ -99,7 +91,7 @@
 	        		<a href="<%= destroy_user_session_path %>" class="grey-text text-lighten-5" data-method="delete">
 	        		<i class="material-icons tiny right ">power_settings_new</i>Déconnexion</a>
 	        	<% else %>
-	        		<a href="<%= destroy_user_session_path %>" class="grey-text text-lighten-5" data-method="delete">
+	        		<a href="<%= new_user_session_path %>" class="grey-text text-lighten-5">
 	        		<i class="material-icons tiny right ">account_circle</i>Se connecter / S'inscrire</a>
 	        	<% end %>
 	        </li>

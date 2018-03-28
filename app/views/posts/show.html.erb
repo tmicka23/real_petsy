@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Photo:</strong>
-  <img src="<%= @post.photo_url(:large) %>" alt="<%= @post.name %>">
+  <% if @post.photo %>
+    <strong>Photo:</strong>
+    <img src="<%= @post.photo_url %>" alt="<%= @post.name %>">
+  <% end %>
 </p>
 
 <p>
@@ -21,11 +23,18 @@
 </p>
 
 <div>
-	<h4>sur cet article :</h4>
-	<% @post.pets.each do |pet| %>
-		<a href="<%= pet_path(pet) %>" class="badge badge-pill badge-primary"><%= pet.name %></a>
+  <% @post.pets.each do |pet| %>
+    <div class="container">
+      <h4>sur cet article :</h4>
+      <a href="<%= pet_path(pet) %>">
+        <span class="badge teal grey-text text-lighten-5"><%= pet.name %></span>
+      </a>
+    </div>
 	<%end%>
 </div>
+<br>
+<br>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="container">
+  <%= link_to 'Retour aux articles', posts_path, class: 'waves-effect waves-light btn light-blue' %>
+</div>
