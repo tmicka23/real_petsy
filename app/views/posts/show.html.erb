@@ -1,40 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <% if @post.photo %>
-    <strong>Photo:</strong>
-    <img src="<%= @post.photo_url %>" alt="<%= @post.name %>">
-  <% end %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user.username %>
-</p>
-
-<div>
-  <% @post.pets.each do |pet| %>
-    <div class="container">
-      <h4>sur cet article :</h4>
-      <a href="<%= pet_path(pet) %>">
-        <span class="badge teal grey-text text-lighten-5"><%= pet.name %></span>
-      </a>
-    </div>
-	<%end%>
-</div>
-<br>
-<br>
-
 <div class="container">
-  <%= link_to 'Retour aux articles', posts_path, class: 'waves-effect waves-light btn light-blue' %>
+  <div class="page-header text-center">
+    <h1 class="grey-text text-darken-5">
+      <strong> <%= @post.name %></strong>
+    </h1>
+  </div>
+  <div class="posts">
+    <img src="<%= @post.photo_url %>" alt="<%= @post.name %>" class="show" >
+  </div>
+  <div class="row">
+    <div class="col s12 m4" >
+      <h4 class="teal-text">
+        Par : <strong><%= @post.user.username %></strong>
+      </h4>
+    </div>
+    <div class="col s12 m4" >
+      <h4 class="text-center teal-text">Description</h4>
+      <p class="grey-text text-darken-5"> <%= @post.content %></p>
+    </div>
+    <div class="col s12 m4" >
+      <h4 class="teal-text">sur cette photo :</h4>
+      <% @post.pets.each do |pet| %>
+        <a href="<%= pet_path(pet) %>" class="btn blue grey-text text-lighten-5"><%= pet.name %></a>
+      <%end%>
+  </div>
+</div>
+
+
 </div>

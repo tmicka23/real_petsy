@@ -27,6 +27,22 @@
   </div>
 </div>
 
-<div class="container">
-  <img src="<%= @pet.image_url %>" class="post">
-</div>
+
+<h3 class="red-text text-lighten-1">Les articles de <%= @pet.name %></h3>
+<% @pet.posts.each do |post| %>
+  <div class="row">
+      <div class="container col m6">
+        <div class="card grey lighten-3 hoverable form-align">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator post" src="<%= post.photo_url %>" style="max-width: 400px;">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><%= post.name %><i class="material-icons medium teal-text right">add_circle</i></span>
+            </div>
+            <div class="card-reveal grey lighten-3">
+              <span class="card-title grey-text text-darken-4"><%= post.name %><i class="material-icons right">close</i></span>
+              <p><%= post.content %></p>
+            </div>
+        </div>
+  </div>
+<% end%>
