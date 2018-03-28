@@ -25,7 +25,11 @@
 		<ul class="collection">
 			<% @pet.each do |pet| %>
     		<li class="collection-item avatar hoverable">
-      			<img src="<%= pet.image_url(:thumb) %>" alt="Petsy" class="circle">
+    			<% if pet.image %>
+      				<img src="<%= pet.image_url(:thumb) %>" alt="Petsy" class="circle">
+				<% else %>
+					<img src="http://lorempicsum.com/futurama/255/200/2" alt="petsy">
+				<% end %>
       			<span class="title"><%= pet.user.username %></span>
       			<div>
       				<h4><strong><%= pet.name %></strong></h4> 
