@@ -1,45 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row pet">
+  <div class="col s4 push-s8 center ">
+    <img src="<%= @pet.image_url(:thumb) %>" alt="<%= @pet.name %>" class="circle" >    
+    <div class="container bt">
 
 
-<% if user_signed_in? %>
-      <% if @pet.followedBy?(current_user) %>
-        <%= link_to "Se désabonner", [@pet, Subscription], method: :delete, class: 'btn btn-warning' %>
-      <% else %>
-        <%= link_to "S'abonner", [@pet, Subscription], method: :post, class: 'btn btn-success' %>
-      <% end %>
-    <% end %>
+      <% if user_signed_in? %>
+        <% if @pet.followedBy?(current_user) %>
+          <%= link_to "Se désabonner", pet_subscriptions_path(pet_id: @pet.id), method: :delete, class: 'btn red lighten-1 grey-text text-lighten-5'%>
+        <%else%>
+          <%= link_to "S'abonner", pet_subscriptions_path(pet_id: @pet.id), method: :post, class: 'btn teal  grey-text text-lighten-5' %>
+        <%end%>
+      <%end%>
+        
+    </div>
+  </div>
+  <div class="col s8 pull-s4 page-foot grey-text text-darken-5">
+    <h2>
+      <%= @pet.name %>
+    </h2>
+    <h3>
+      <%= @pet.age %> <%= 'an'.pluralize(@pet.age) %>
+    </h3>
+    <h3>
+      <%= @pet.species.name %>
+    </h3>
+  </div>
+</div>
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
-<% if @pet.image %>
-  <p>
-    <strong>Photo:</strong>
-  <img src="<%= @pet.image_url(:large) %>" alt="<%= @pet.name %>">
-</p>
-<% end %>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @pet.gender %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @pet.birthday %>
-
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @pet.user.username %>
-</p>
-
-<p>
-  <strong>Species:</strong>
-  <%= @pet.species.name %>
-</p>
-
-<%= link_to 'Retour', pets_path %>
+<div class="container">
+  <img src="<%= @pet.image_url %>" class="post">
+</div>
