@@ -230,6 +230,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.16, >= 1.16.1)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
