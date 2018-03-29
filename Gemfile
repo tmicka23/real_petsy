@@ -8,7 +8,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'bundler', '~> 1.15', '>= 1.15.2'
+gem 'bundler', '~> 1.16', '>= 1.16.1'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
