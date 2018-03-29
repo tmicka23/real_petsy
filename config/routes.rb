@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  filter :locale
 
   resources :posts do
   	collection do
