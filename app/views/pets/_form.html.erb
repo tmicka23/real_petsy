@@ -2,14 +2,14 @@
 
   <% if @pet.image? %>
   <p>
-    <%= image_tag @pet.image_url %>
+    <img src="<%= @pet.image_url %>" class="circle">
   </p>
   <% end %>
   <%= form.input :image, as: :file %>
   <%= form.input :name %>
   <%= form.association :species, include_blank: false %>
   <%= form.input :gender, collection: {Male: :M, Femelle: :F}, include_blank: false %>
-  <%= form.input :birthday, as: :string, input_html: {class: 'form-datepicker'} %>
+  <%= form.input :birthday, as: :string, input_html: {class: 'datepicker'} %>
   <%= form.button :submit, pet.new_record? ? 'Créer' : 'Modifier', class: 'btn-primary' %>
 
 <% end %>

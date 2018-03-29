@@ -1,46 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="row pet">
+  <div class="col s4 push-s8 center ">
+    <img src="<%= @pet.image_url(:thumb) %>" alt="<%= @pet.name %>" class="circle" >    
+    <div class="container bt">
 
 
-<% if user_signed_in? %>
-      <% if @pet.followedBy?(current_user) %>
-        <%= link_to "Se désabonner", [@pet, Subscription], method: :delete, class: 'btn btn-warning' %>
-      <% else %>
-        <%= link_to "S'abonner", [@pet, Subscription], method: :post, class: 'btn btn-success' %>
-      <% end %>
-    <% end %>
+      <% if user_signed_in? %>
+        <% if @pet.followedBy?(current_user) %>
+          <%= link_to "Se désabonner", pet_subscriptions_path(pet_id: @pet.id), method: :delete, class: 'btn red lighten-1 grey-text text-lighten-5'%>
+        <%else%>
+          <%= link_to "S'abonner", pet_subscriptions_path(pet_id: @pet.id), method: :post, class: 'btn teal accent-3 grey-text text-lighten-5' %>
+        <%end%>
+      <%end%>
+        
+    </div>
+  </div>
+  <div class="col s8 pull-s4 page-foot grey-text text-darken-5">
+    <h2>
+      <%= @pet.name %>
+    </h2>
+    <h3>
+      <%= @pet.age %> <%= 'an'.pluralize(@pet.age) %>
+    </h3>
+    <h3>
+      <%= @pet.species.name %>
+    </h3>
+  </div>
+</div>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
-<% if @pet.image %>
-  <p>
-    <strong>Photo:</strong>
-  <img src="<%= @pet.image_url(:large) %>" alt="<%= @pet.name %>">
-</p>
-<% end %>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @pet.gender %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @pet.birthday %>
-
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @pet.user.username %>
-</p>
-
-<p>
-  <strong>Species:</strong>
-  <%= @pet.species.name %>
-</p>
-
-<%= link_to 'Modifier', edit_pet_path(@pet) %> |
-<%= link_to 'Retour', pets_path %>
+<h3 class="red-text text-lighten-1">Les articles de <%= @pet.name %></h3>
+<% @pet.posts.each do |post| %>
+  <div class="row">
+      <div class="container col m6">
+        <div class="card grey lighten-3 hoverable form-align">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator post" src="<%= post.photo_url %>" style="max-width: 400px;">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><%= post.name %><i class="material-icons medium teal-text right">add_circle</i></span>
+            </div>
+            <div class="card-reveal grey lighten-3">
+              <span class="card-title grey-text text-darken-4"><%= post.name %><i class="material-icons right">close</i></span>
+              <p><%= post.content %></p>
+              <a href="<%= post_path(post.id) %>" class="waves-effect waves-light btn-small light-blue">Aller à l'article</a>
+            </div>
+        </div>
+  </div>
+<% end%>

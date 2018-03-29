@@ -17,10 +17,21 @@
 //= require_self
 
 
-flatpickr('.form-datepicker', {
- altInput: true,
- altFormat: 'j F Y',
- maxDate: new Date()
-})
+M.AutoInit();
 
-$('select[multiple]').select2()
+
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
+ $(".button-collapse").sideNav();
+
+   $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+  
+ 
+$(".dropdown-trigger").dropdown();

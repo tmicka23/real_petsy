@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy, :show]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def me
     @posts = current_user.posts.all
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
 
   def show
+    @post = Post.find(params[:id])
   end
 
 

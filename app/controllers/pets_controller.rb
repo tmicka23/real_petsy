@@ -8,6 +8,8 @@ class PetsController < ApplicationController
     @pets = current_user.pets.all
   end
 
+  
+
   # GET /pets/1
   # GET /pets/1.json
   def show
@@ -52,10 +54,7 @@ class PetsController < ApplicationController
   # DELETE /pets/1.json
   def destroy
     @pet.destroy
-    respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to pets_url, danger: "#{@pet.name} à bien été supprimé de vos animaux"
   end
 
   private
