@@ -24,3 +24,82 @@
   	border:1px solid #ecf0f1;
 
 }
+
+
+.navatar {
+	max-height: 45px;
+	max-width: 45px;
+	border-radius :50%;
+  	border:1px solid #ecf0f1;
+}
+
+
+.form-align {
+	display: block;
+	justify-content: center;
+}
+
+
+
+.index {
+
+	border-radius :50%;
+  	border:2px solid #ecf0f1;
+
+}
+
+.post {
+	width: 540px;
+	height: 360px;
+}
+
+
+.post1 {
+	width: 276px;
+	height: 156px;
+}
+
+.show {
+	max-width: 100%;
+}
+
+.page-header {
+	background-color: white;
+	justify-content: center;
+	border-bottom:1px solid #636e72;
+	margin-bottom: 10px;
+}
+
+.page-foot {
+	display: flex;
+	justify-content: space-around;
+	border-top:1px solid #636e72;
+	margin-top: 10px;
+	margin-left: 60px;
+}
+
+.subfooter {
+	background-color: white;
+	display: flex;
+	justify-content: left;
+	border-top:1px solid #636e72;
+	padding-top: 10px;
+	margin-top: 10px;
+	margin-bottom: 300px;
+}
+
+
+
+.pet {
+	border-bottom: 1px solid #636e72;
+	padding-bottom: 30px;
+	margin-bottom: 50px ;
+}
+
+
+
+.bt {
+	padding: 10px;
+	margin-top: 10px;
+}
+

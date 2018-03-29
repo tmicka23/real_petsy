@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col s12 m8">
     <%= yield(:content) %>
   </div>
-  <div class="col-md-4">
-    <div class="list-group">
+  <div class="col s12 m4">
+    <div class="collection">
     	<% if user_signed_in? %>
-     		 <a href="<%= pets_path %>" class="list-group-item<%= yield(:tab) == 'pets' ? ' active' : '' %>">Mes animaux</a>
-         <a href="<%= me_posts_path %>" class="list-group-item<%= yield(:tab) == 'posts' ? ' active' : '' %>">Mes Articles</a>
-         <a href="<%= follow_posts_path %>" class="list-group-item<%= yield(:tab) == 'posts' ? ' active' : '' %>">My Followed posts</a>
-     		 <a href="<%= edit_user_registration_path %>" class="list-group-item<%= yield(:tab) == 'profil' ? ' active' : '' %>">Mon compte</a>
+     		 <a href="<%= pets_path %>" class="collection-item <%= yield(:tab) === 'pets' ? 'active' : '' %>">Mes animaux</a>
+         <a href="<%= me_posts_path %>" class="collection-item <%= yield(:tab) === 'me' ? 'active' : '' %>">Mes Articles</a>
+         <a href="<%= follow_posts_path %>" class="collection-item <%= yield(:tab) === 'posts' ? 'active' : '' %>">Mes abonnements</a>
+     		 <a href="<%= edit_user_registration_path %>" class="collection-item <%= yield(:tab) === 'profil' ? 'active' : '' %>">Mon compte</a>
 		<% end %>
     </div>
   </div>

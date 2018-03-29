@@ -1,44 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
 <% content_for :content do %>
 
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          <h3><%= post.name %></h3>
+<h1>Tous les articles</h1>
+
+<p class="text-left">
+  <a href="<%= new_post_path %>" class="waves-effect waves-light btn purple accent-3"><i class="material-icons left">thumb_up</i>Ajouter un article</a>
+</p>
+
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="card grey lighten-3 hoverable col m6 bt">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= post.photo_url %>" style="max-width: 400px;">
         </div>
-        <div class="card-body posts">
-          <% if post.photo %>
-            <div>
-              <img src="<%= post.photo_url(:thumb) %>">
-            </div>
-          <% end %>
-          <p><%= post.content %></p>
-          <p>Par : <%= post.user.username %></p>
-          <div>
-            <h4>sur cet article :</h4>
-              <% post.pets.each do |pet| %>
-                <a href="<%= pet_path(pet) %>" class="badge badge-pill badge-primary"><%= pet.name %></a>
-              <%end%>
-          </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= post.name %><i class="material-icons medium teal-text right">add_circle</i></span>
+        </div>
+        <div class="card-reveal grey lighten-3">
+            <span class="card-title grey-text text-darken-4"><%= post.name %><i class="material-icons right">close</i></span>
+            <p><%= post.content %></p>
+            <a href="<%= post_path(post.id) %>" class="waves-effect waves-light btn-small light-blue">Aller à l'article</a>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
-
-
-
-
-
+    <% end %>
+  </div>
 
 <br>
-
-  <%= link_to 'New Post', new_post_path %>
 
   <% end %>
   <%= render template: 'layouts/profile' %>

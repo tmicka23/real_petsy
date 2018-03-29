@@ -4,20 +4,53 @@
 
 
 <div class="row">
-	<div class="container col-md-12">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad obcaecati eum magnam! Eum accusantium voluptas, repudiandae minima. Distinctio rem, voluptates molestiae quisquam ducimus porro quo quasi dolorem, fugit at deserunt.</p>
+
+	<div class="container col m6">
+		<h3 class="red-text text-lighten-1">Le dernier Article</h3>
+			<div class="card grey lighten-3 hoverable">
+			    <div class="card-image waves-effect waves-block waves-light">
+			      <img class="activator" src="<%= @post.photo_url %>" style="max-width: 400px;">
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title activator grey-text text-darken-4"><%= @post.name %><i class="material-icons medium teal-text right">add_circle</i></span>
+			    </div>
+			    <div class="card-reveal grey lighten-3">
+			      <span class="card-title grey-text text-darken-4"><%= @post.name %><i class="material-icons right">close</i></span>
+			      <p><%= @post.content %></p>
+			      <a href="<%= post_path(@post.id) %>" class="waves-effect waves-light btn-small light-blue">Aller à l'article</a>
+			    </div>
+			</div>
 	</div>
-	<div class="container col-md-6">
-		<% if user_signed_in? %>
-			<a href="<%= destroy_user_session_path %>" class="btn btn-secondary" data-method="delete"> Se déconnecter</a>
-		<% else %>
-			<a href="<%= new_user_registration_path %>" class="btn btn-primary" > Se connecter / S'inscrire</a>
-			<a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-primary" > Se connecter via facebook</a>
-		<% end %>
+	<div class="container col m6">
+		<h3 class="red-text text-lighten-1">Les derniers arrivés</h3>
+		<ul class="collection">
+			<% @pet.each do |pet| %>
+    		<li class="collection-item avatar hoverable">
+    			<% if pet.image %>
+      				<img src="<%= pet.image_url(:thumb) %>" alt="Petsy" class="circle">
+				<% else %>
+					<img src="http://lorempicsum.com/futurama/255/200/2" alt="petsy">
+				<% end %>
+      			<span class="title"><%= pet.user.username %></span>
+      			<div>
+      				<h4><strong><%= pet.name %></strong></h4> 
+        			<p><%= pet.species.name %></p>
+      			</div>
+      			<a href="<%= pet_path(pet.id) %>" class="secondary-content hoverable"><i class="material-icons">grade</i></a>
+    		</li>
+    		<%end%>
+  		</ul>
 	</div>
 </div>
 
-
+<div class="container col m6">
+	<% if user_signed_in? %>
+		<a href="<%= destroy_user_session_path %>" class="btn red lighten-1 grey-text text-lighten-5" data-method="delete"> Se déconnecter</a>
+	<% else %>
+		<a href="<%= new_user_registration_path %>" class="btn teal grey-text text-lighten-5" > Se connecter / S'inscrire</a>
+		<a href="<%= user_facebook_omniauth_authorize_path %>" class="btn blue grey-text text-lighten-5" > Se connecter via facebook</a>
+	<% end %>
+</div>
 
 <% end %>
 

@@ -1,31 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Photo:</strong>
-  <img src="<%= @post.photo_url(:large) %>" alt="<%= @post.name %>">
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user.username %>
-</p>
-
-<div>
-	<h4>sur cet article :</h4>
-	<% @post.pets.each do |pet| %>
-		<a href="<%= pet_path(pet) %>" class="badge badge-pill badge-primary"><%= pet.name %></a>
-	<%end%>
+<div class="container">
+  <div class="page-header text-center">
+    <h1 class="grey-text text-darken-5">
+      <strong> <%= @post.name %></strong>
+    </h1>
+  </div>
+  <div class="posts">
+    <img src="<%= @post.photo_url %>" alt="<%= @post.name %>" class="show" >
+  </div>
+  <div class="row">
+    <div class="col s12 m4" >
+      <h4 class="teal-text">
+        Par : <strong><%= @post.user.username %></strong>
+      </h4>
+    </div>
+    <div class="col s12 m4" >
+      <h4 class="text-center teal-text">Description</h4>
+      <p class="grey-text text-darken-5"> <%= @post.content %></p>
+    </div>
+    <div class="col s12 m4" >
+      <h4 class="teal-text">sur cette photo :</h4>
+      <% @post.pets.each do |pet| %>
+        <a href="<%= pet_path(pet) %>" class="btn blue grey-text text-lighten-5"><%= pet.name %></a>
+      <%end%>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+</div>
